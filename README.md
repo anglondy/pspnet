@@ -4,6 +4,7 @@ This project contains my implementation of the PSPNet algorithm (Python, Tensorf
 The data I used to train and test my model is a subset of the ADE20K dataset. It can be found at this address: https://www.kaggle.com/residentmario/ade20k-outdoors.
 
 Some info about project files
+
 Folders:
 - utils folder contains useful function;
 - the data folder must contain a zip file downloaded from kaggle;
@@ -22,6 +23,6 @@ Scripts:
 
 Results:
 The most common metric for image segmentation is pixel-wise accuracy. My model achieves ~ 51% accuracy on a train set and ~ 53% accuracy on a test set. The modern model achieves 80% accuracy across the entire set. 
-There are some reasons behind this difference:
-- Authors of the paper use whole ADE20K dataset, while I use just a subset.
-- I have limited resources. I trained my model using Colab GPU and even though I spent a lot of time optimizing my code to fit in memory limits. Also due to limited resources I used part of the ResNet50 instead of whole ResNet101. This results in bad model performance because most errors come from just 2 classes (3rd and 5th, look at train/test accuracy logs). I've tried to augment this classes and retrain the model but thats doesn't seem to work well, possibly it would be better to use bigger network.
+There are several reasons for this difference:
+- The authors of the article use the entire ADE20K dataset, and I only use a subset.
+- I have limited resources. I trained my model with the Colab GPU and although I spent a lot of time optimizing my code to fit the memory constraints. Also due to limited resources, I used part of ResNet50 instead of all ResNet101. This leads to poor model performance because most errors come from just 2 classes (3rd and 5th, see training / test accuracy logs). I tried to augment these classes and retrain the model but this did not increase the performance of the network.
