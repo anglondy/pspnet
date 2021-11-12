@@ -22,7 +22,7 @@ Scripts:
 - evaluate_performance.py evaluates model predictions (results can be found in the logs folder).
 
 Results:
-The most common metric for image segmentation is pixel-wise accuracy. My model achieves ~ 51% accuracy on a train set and ~ 53% accuracy on a test set. The modern model achieves 80% accuracy across the entire set. 
+The most common metric for image segmentation is pixel-wise accuracy. My model achieves ~ 51% accuracy on a train set and ~ 53% accuracy on a test set. The state-of-the-art models achieve 80% accuracy across the entire set. 
 There are several reasons for this difference:
 - The authors of the article use the entire ADE20K dataset, and I only use a subset.
 - I have limited resources. I trained my model with the Colab GPU and although I spent a lot of time optimizing my code to fit the memory constraints. Also due to limited resources, I used part of ResNet50 instead of all ResNet101. This leads to poor model performance because most errors come from just 2 classes (3rd and 5th, see training / test accuracy logs). I tried to augment these classes and retrain the model but this did not increase the performance of the network.
